@@ -12,9 +12,11 @@ public class UserPlay {
     Scanner scanner = new Scanner(System.in);
 
     public UserPlay(GameModel gameModel, int movement) {
+
         this.gameModel = gameModel;
         this.movement = movement;
         this.play();
+
     }
 
     private void play() {
@@ -51,7 +53,6 @@ public class UserPlay {
             }
 
         }
-
         if(won){
             System.out.println("YOU WON !!!");
         }

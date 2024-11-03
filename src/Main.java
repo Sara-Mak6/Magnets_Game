@@ -10,7 +10,6 @@ public class Main {
         GameModel level = GameLevels.level1();
         int movement = 0;
 
-        // Levels Select Options
         System.out.println("Choose Level from ( 1 to 25 ):");
 
         int option = new Scanner(System.in).nextInt();

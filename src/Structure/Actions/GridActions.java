@@ -232,4 +232,9 @@ public class GridActions {
 
     }
 
+    public static boolean Equals(GameModel game1, GameModel game2) {
+        return game1.equals(game2);
+    }
+
+
 }

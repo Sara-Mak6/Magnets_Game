@@ -536,4 +536,5 @@ public class GameLevels {
 
         return new GameModel(5 , 4, grid, white_cells, white_position);
     }
+
 }
