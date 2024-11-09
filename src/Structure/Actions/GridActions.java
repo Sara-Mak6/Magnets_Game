@@ -2,6 +2,7 @@ package Structure.Actions;
 
 import Structure.Models.GameModel;
 import Structure.Models.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,20 @@ public class GridActions {
             }
         }
         return fin;
+    }
+
+    public static boolean isGridEqual(GameModel g1, GameModel g2) {
+        int r = g1.getRow_boundary();
+        int c = g2.getColumn_boundary();
+        int size = r * c;
+        for (int i = 0; i < r; i++)
+            for (int j = 0; j < c; j++) {
+                if (g1.getBoard()[i][j] == g2.getBoard()[i][j])
+                    size--;
+            }
+        if (size == 0)
+            return true;
+        return false;
     }
 
     public static boolean CheckMove(int x1, int y1, int x2, int y2, GameModel game) {
@@ -100,7 +115,6 @@ public class GridActions {
         // col up shift
         for (int i = x + 2; i < rows; i++) {
             if (((grid[i][y] != '.') && (grid[i][y] != ' ')) && (grid[i - 1][y] == '.')) {
-                System.out.println(i + "the grid is " + grid[i][y]);
                 grid[i - 1][y] = grid[i][y];
                 grid[i][y] = '.';
             }
@@ -203,8 +217,6 @@ public class GridActions {
                 }
             }
         }
-
-
         // Row right shift
         int j = y + 1, startRight = -1;
         for (; j < colBoundary; j++) {

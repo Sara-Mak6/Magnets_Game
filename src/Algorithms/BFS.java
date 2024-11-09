@@ -22,14 +22,6 @@ public class BFS extends BaseLogic {
 
             visitedList.add(node.getValue());
 
-//            System.out.println("the node and its children");
-//
-//            GridActions.printGrid(node.getValue());
-//
-//            for(GameModel g : GridActions.GetNextStates(node.getValue())){
-//                GridActions.printGrid(g);
-//            }
-
             for (GameModel child : GridActions.GetNextStates(node.getValue())) {
                 if (!isVisited(child)) {
                     State state1 = new State(node, child);

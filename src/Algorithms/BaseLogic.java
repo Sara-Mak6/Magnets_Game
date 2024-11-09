@@ -14,8 +14,13 @@ public class BaseLogic {
 
     ArrayList<GameModel> solution = new ArrayList<>();
 
+
     public boolean isVisited(GameModel game) {
-        return visitedList.contains(game);
+        for (GameModel g : visitedList) {
+            if(GridActions.isGridEqual(game,g))
+                return true;
+        }
+        return false;
     }
 
     protected void Play(State sol) {
@@ -26,7 +31,7 @@ public class BaseLogic {
         else
             System.out.println("NO SOLUTION FOUND");
 
-        while (sol!= null && sol.hasPrevious()) {
+        while (sol != null && sol.hasPrevious()) {
             solution.add(sol.getValue());
             sol = sol.getParent();
         }

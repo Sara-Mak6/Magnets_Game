@@ -13,40 +13,42 @@ public class GameLevels {
     // R ==> red cell
     // space ==> wall
 
-//    public static GameModel level1() {
-//
-//        char[][] grid = {
-//                {'.', '.', '.', '.'},
-//                {'.', '.', 'G', '.'},
-//                {'P', '.', '.', '.'},
-//        };
-//
-//        int white_cells = 2;
-//
-//        // Define the white cell positions
-//        List<Position> white_position = new ArrayList<>();
-//        white_position.add(new Position(1, 1));
-//        white_position.add(new Position(1, 3));
-//
-//        return new GameModel(3, 4, grid, white_cells, white_position);
-//    }
-
     public static GameModel level1() {
 
         char[][] grid = {
-                {'.', 'P'},
-                {'.', '.'},
+                {'.', '.', '.', '.'},
+                {'.', '.', 'G', '.'},
+                {'P', '.', '.', '.'},
         };
 
-        int white_cells = 1;
+        int white_cells = 2;
 
         // Define the white cell positions
         List<Position> white_position = new ArrayList<>();
-        white_position.add(new Position(0, 0));
+        white_position.add(new Position(1, 1));
+        white_position.add(new Position(1, 3));
 
-
-        return new GameModel(2, 2, grid, white_cells, white_position);
+        return new GameModel(3, 4, grid, white_cells, white_position);
     }
+
+//    public static GameModel level1() {
+//
+//        char[][] grid = {
+//                {'.', 'P'},
+//                {'.', '.'},
+//                {'R', '.'},
+//        };
+//
+//        int white_cells = 1;
+//
+//        // Define the white cell positions
+//        List<Position> white_position = new ArrayList<>();
+//        white_position.add(new Position(0, 0));
+//        white_position.add(new Position(2, 1));
+//
+//
+//        return new GameModel(3, 2, grid, white_cells, white_position);
+//    }
 
     public static GameModel level2() {
 
