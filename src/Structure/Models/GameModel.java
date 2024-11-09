@@ -1,5 +1,4 @@
 package Structure.Models;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,7 @@ public class GameModel {
     private int white_cells;
     private List<Position> white_position;
 
+    public GameModel(){}
     // Normal constructor
     public GameModel(int row_boundary, int column_boundary, char[][] grid, int white_cells, List<Position> white_position) {
         this.row_boundary = row_boundary;
@@ -67,5 +67,16 @@ public class GameModel {
 
     public char[][] getBoard() {
         return grid;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash();
     }
 }

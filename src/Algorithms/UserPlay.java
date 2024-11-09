@@ -12,15 +12,15 @@ public class UserPlay {
     Scanner scanner = new Scanner(System.in);
 
     public UserPlay(GameModel gameModel, int movement) {
-
         this.gameModel = gameModel;
         this.movement = movement;
         this.play();
-
     }
 
     private void play() {
+
         boolean won=false;
+
         while (movement > 0) {
 
             GridActions.printGrid(gameModel);
@@ -49,7 +49,6 @@ public class UserPlay {
                 }
             } else {
                 System.out.println("something went wrong!! please try again ");
-                continue;
             }
 
         }

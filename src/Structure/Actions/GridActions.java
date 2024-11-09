@@ -1,7 +1,8 @@
 package Structure.Actions;
+
 import Structure.Models.GameModel;
 import Structure.Models.Position;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class GridActions {
@@ -27,7 +28,6 @@ public class GridActions {
         }
         System.out.println();
     }
-
 
     public static boolean isFinal(GameModel game) {
         char[][] grid = game.getBoard();
@@ -117,7 +117,6 @@ public class GridActions {
 
     }
 
-
     public static void movePCells(int x, int y, GameModel game) {
         moveCol(x, y, game);
         moveRow(x, y, game);
@@ -131,7 +130,6 @@ public class GridActions {
         // col up shift
         int i = x - 1, startUp = -1;
         for (; i >= 0; i--) {
-            System.out.println(i);
             if (grid[i][y] == 'R' || grid[i][y] == 'G' || grid[i][y] == 'P') {
                 startUp = i;
                 while (i >= 0 && grid[i][y] != '.') {
@@ -236,5 +234,42 @@ public class GridActions {
         return game1.equals(game2);
     }
 
+    public static void CheckMoves(int x, int y, GameModel game, ArrayList<GameModel> nextStates) {
+
+        int rows = game.getRow_boundary();
+        int cols = game.getColumn_boundary();
+        char[][] grid = game.getBoard();
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++) {
+                {
+                    if (CheckMove(x, y, i, j, game)) {
+                        GameModel newState = new GameModel(game);
+                        Move(x, y, i, j, newState);
+                        nextStates.add(newState);
+                    }
+                }
+            }
+    }
+
+    public static ArrayList<GameModel> GetNextStates(GameModel game) {
+
+        ArrayList<GameModel> nextStates = new ArrayList<>(); // Store States
+
+        int rows = game.getRow_boundary();
+        int cols = game.getColumn_boundary();
+        char[][] board = game.getBoard();
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++) {
+                {
+                    if (board[i][j] == 'P' || board[i][j] == 'R') {
+                        CheckMoves(i, j, game, nextStates);
+                    }
+                }
+            }
+
+        return nextStates;
+    }
 
 }

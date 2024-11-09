@@ -1,3 +1,5 @@
+import Algorithms.BFS;
+import Algorithms.DFS;
 import Algorithms.UserPlay;
 import Levels.GameLevels;
 import Structure.Models.GameModel;
@@ -7,8 +9,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        GameModel level = GameLevels.level1();
+        GameModel level;
         int movement = 0;
+
+        System.out.println("1-UserPlay ");
+        System.out.println("2-BFS");
+        System.out.println("3-DFS");
+
+        int playMethod = new Scanner(System.in).nextInt();
 
         System.out.println("Choose Level from ( 1 to 25 ):");
 
@@ -146,7 +154,15 @@ public class Main {
                 movement = 5;
         }
 
-        UserPlay userPlay = new UserPlay(level, movement);
+        if (playMethod == 1) {
+            UserPlay userPlay = new UserPlay(level, movement);
+        } else if (playMethod == 2) {
+            BFS bfs = new BFS(level);
+        } else if (playMethod == 3) {
+            DFS dfs = new DFS(level);
+        }else{
+            System.out.println("invalid input! ... Start with default playMethod");
+        }
 
     }
 }
